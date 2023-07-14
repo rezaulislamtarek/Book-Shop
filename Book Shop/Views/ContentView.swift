@@ -19,7 +19,6 @@ struct ContentView: View {
                                 BookCard(book: book)
                                     .environmentObject(cartMgr)
                             }
-                            
                         }
                     }.padding()
                 }

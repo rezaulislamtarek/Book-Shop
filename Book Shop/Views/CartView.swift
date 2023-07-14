@@ -10,10 +10,24 @@ import SwiftUI
 struct CartView: View {
     @EnvironmentObject var cm : CartManager
     var body: some View {
-        ScrollView{
-            Text("Your cart is empty")
+        ScrollView(){
+            VStack(alignment: .leading){
+                if cm.books.count > 0 {
+                    ForEach(cm.books, id: \.id){ book in
+                        BookRow(book: book)
+                    }
+                    HStack {
+                        Text("Your cart total is ")
+                        Spacer()
+                        Text("\(cm.total) TK").font(.title3)
+                    }.padding()
+                         
+                }else{
+                    Text("Your cart is empty")
+                }
+            }
         }
-        // .navigationTitle(Text("My cart"))
+        .navigationTitle(Text("My cart"))
         .padding(.top)
     }
 }

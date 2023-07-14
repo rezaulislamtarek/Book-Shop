@@ -29,7 +29,7 @@ struct BookRow: View {
                     cm.removeFromCart(book: book)
                 }
             
-        }
+        }.padding()
     }
 }
 
